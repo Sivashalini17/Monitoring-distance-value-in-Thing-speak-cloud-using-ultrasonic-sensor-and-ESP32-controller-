@@ -1,5 +1,6 @@
-# Monitoring-distance-value-in-Thing-speak-cloud-using-ultrasonic-sensor-and-ESP32-controller
-
+# EXPERIMENT 6 : Monitoring-distance-value-in-Thing-speak-cloud-using-ultrasonic-sensor-and-ESP32-controller
+NAME:SIVA SHALINI.S
+REG NO :24009860
 # Uploading ultrasonic sensor data in Thing Speak cloud
 
 # AIM:
@@ -96,8 +97,80 @@ Prototype and build IoT systems without setting up servers or developing web sof
 
  
 # PROGRAM:
+```
+#include" ThingSpeak.h"
+
+#include <WiFi.h>
+
+#define echoPin 25
+
+#define trigPin 26
+
+char ssid[]="Redmi Note 13";
+
+char pass[]="XXXX";
+
+const int t-25; WiFiClient client; unsigned long myChannelField = 2787745; const int ChannelField1 1; const char *mywriteAPIKey="LAXINFRRAMBCBGM; long duration; int distance; void setup() {
+
+pinMode(trigPin, OUTPUT);
+
+pinMode(echoPin, INPUT);
+
+Serial.begin(9600); ThingSpeak.begin(client); delay(1000);
+
+WiFi.mode(WIFI_STA);
+
+void loop()
+
+{
+
+if(WiFi.status()1-WL_CONNECTED)
+
+{ Serial.print("Attempting to connet to SSID: "); Serial.println(ssid);
+
+while(WiFi.status() != WL CONNECTED)
+
+WiFi.begin(ssid, pass);
+
+Serial.print(".");
+
+delay(5000);
+}
+Serial.println("\nConnected");
+
+digitalWrite(trigPin, LOW);
+
+delayMicroseconds(2);
+
+digitalWrite(trigPin, HIGH);
+
+delayMicroseconds(10);
+
+digitalWrite(trigPin, LOW);
+
+}
+
+duration=pulseIn(echoPin, HIGH);
+
+distance (duration 0.034/2);
+
+Serial.print("Distance: ");
+
+Serial.print(distance);
+
+Serial.println("cm");
+
+ThingSpeak.writeField(myChannelField, ChannelFieldi, distance, myWriteAPIKey);
+
+delay(1000);
+
+```
 # CIRCUIT DIAGRAM:
+![image](https://github.com/user-attachments/assets/a6c86c4c-1e25-4b32-bfb1-ef098385419a)
+
 # OUTPUT:
+![image](https://github.com/user-attachments/assets/7f11885c-d4b5-476a-82d9-bcda19c0c605)
+![image](https://github.com/user-attachments/assets/5a066878-fbb8-4a1e-b654-7c16d3419758)
+
 # RESULT:
 Thus the distance values are updated in the Thing speak cloud using ESP32 controller.
-
